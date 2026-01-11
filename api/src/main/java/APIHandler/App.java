@@ -1,4 +1,4 @@
-package helloworld;
+package apihandler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+import apihandler.Task;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
@@ -27,7 +27,10 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
                 .withHeaders(headers);
         try {
             final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
-            String output = String.format("{ \"message\": \"hello world\", \"location\": \"%s\" }", pageContents);
+            String output = String.format("{ \"message\": \"TODO App using Java, AWS Lambda and AWS SAM\", \"location\": \"%s\" }", pageContents);
+
+            Task dummyTask = new Task(1, "Cook Eggs");
+            dummyTask.getTaskData();
 
             return response
                     .withStatusCode(200)
