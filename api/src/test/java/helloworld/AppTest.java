@@ -1,4 +1,4 @@
-package helloworld;
+package apihandler;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import static org.junit.Assert.assertEquals;
@@ -16,7 +16,7 @@ public class AppTest {
     String content = result.getBody();
     assertNotNull(content);
     assertTrue(content.contains("\"message\""));
-    assertTrue(content.contains("\"hello world\""));
+    assertTrue(content.contains("\"TODO App using Java, AWS Lambda and AWS SAM\""));
     assertTrue(content.contains("\"location\""));
   }
 }
